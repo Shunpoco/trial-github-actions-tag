@@ -34,6 +34,8 @@ jobs:
 
     - name: Checkout again
       uses: actions/checkout@v2
+      with:
+        ref: main
 
     - name: Create Tag
       uses: negz/create-tag@v1
