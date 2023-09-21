@@ -16,6 +16,22 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+
+    - name: Test change
+      run: |
+        date > test.txt
+    
+    - name: Set git config
+      run: |
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+
+    - name: Commit
+      run: |
+        git add test.txt
+        git commit -m "New date from GitHub Actions"
+        git push origin ${GITHUB_REF#refs/heads/}
+
     - name: Create Tag
       uses: negz/create-tag@v1
       with:
