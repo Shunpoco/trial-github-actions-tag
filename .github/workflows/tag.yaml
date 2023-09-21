@@ -32,22 +32,5 @@ jobs:
         git commit -m "New date from GitHub Actions"
         git push origin ${GITHUB_REF#refs/heads/}
 
-  create-tag:
-    needs: commit
-    runs-on: ubuntu-22.04
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 2
-    - run: git checkout HEAD^
-
-    - run: |
-        ls .
-
-    - name: Create Tag
-      uses: negz/create-tag@v1
-      with:
-        version: ${{ github.event.inputs.version }}
-        message: ${{ github.event.inputs.message }}
-        token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Tag
+      run: git tag "${{ github.event.inputs.tag }}" -m "${{ github.event.inputs.message }}"
