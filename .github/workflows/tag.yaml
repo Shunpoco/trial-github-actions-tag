@@ -38,5 +38,3 @@ jobs:
       run: |
         git tag $VERSION -m $MESSAGE
         git push origin $VERSION
-      env:
-
