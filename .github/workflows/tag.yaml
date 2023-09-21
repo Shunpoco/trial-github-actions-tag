@@ -22,9 +22,12 @@ jobs:
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
 
+    - name: Update image tag
+      run: /bin/bash ./hack/version.sh
+
     - name: Commit
       run: |
-        git add test.txt
+        git add .
         git commit -m "New date from GitHub Actions"
         git push origin ${GITHUB_REF#refs/heads/}
 
