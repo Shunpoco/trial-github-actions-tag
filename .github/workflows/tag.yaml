@@ -17,10 +17,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Test change
-      run: |
-        date > test.txt
-    
     - name: Set git config
       run: |
         git config user.name "GitHub Actions Bot"
