@@ -36,5 +36,5 @@ jobs:
 
     - name: Tag
       run: |
-        git tag $VERSION -m $MESSAGE
+        git tag $VERSION -m "$MESSAGE"
         git push origin $VERSION
