@@ -32,6 +32,9 @@ jobs:
         git commit -m "New date from GitHub Actions"
         git push origin ${GITHUB_REF#refs/heads/}
 
+    - name: Checkout again
+      uses: actions/checkout@v2
+
     - name: Create Tag
       uses: negz/create-tag@v1
       with:
