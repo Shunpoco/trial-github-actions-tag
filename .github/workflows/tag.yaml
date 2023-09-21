@@ -11,11 +11,11 @@ on:
         required: true
 
 jobs:
-  create-tag:
+  commit:
     runs-on: ubuntu-22.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Test change
       run: |
@@ -32,10 +32,12 @@ jobs:
         git commit -m "New date from GitHub Actions"
         git push origin ${GITHUB_REF#refs/heads/}
 
-    - name: Checkout again
-      uses: actions/checkout@v2
-      with:
-        ref: main
+  create-tag:
+    needs: commit
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
 
     - name: Create Tag
       uses: negz/create-tag@v1
