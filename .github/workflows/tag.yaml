@@ -33,4 +33,10 @@ jobs:
         git push origin ${GITHUB_REF#refs/heads/}
 
     - name: Tag
-      run: git tag "${{ github.event.inputs.tag }}" -m "${{ github.event.inputs.message }}"
+      run: |
+        git tag $VERSION -m $MESSAGE
+        git push origin $VERSION
+      env:
+        VERSION: ${{ github.event.inputs.version }}
+        MESSAGE: ${{ github.event.inputs.message }}
+
