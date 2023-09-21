@@ -28,7 +28,7 @@ jobs:
     - name: Commit
       run: |
         git add .
-        git commit -m "New date from GitHub Actions"
+        git commit -m "New version from GitHub Actions"
         git push origin ${GITHUB_REF#refs/heads/}
 
     - name: Tag
