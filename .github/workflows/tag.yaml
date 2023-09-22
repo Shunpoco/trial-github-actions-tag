@@ -18,19 +18,17 @@ jobs:
       MESSAGE: ${{ github.event.inputs.message }}
       BRANCH: "release-${{ github.event.inputs.version }}"
     steps:
-    - name: Check
-      run: |
-        git status
-
     - name: Checkout
       uses: actions/checkout@v4
-      with:
-        ref: $BRANCH
 
     - name: Set git config
       run: |
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
+
+    - name: Create a new branch
+      run: |
+        git checkout -b $BRANCH
 
     - name: Update image tag
       run: /bin/bash ./hack/version.sh $VERSION
