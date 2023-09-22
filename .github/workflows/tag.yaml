@@ -45,6 +45,6 @@ jobs:
         git push origin $VERSION
 
     - name: Create PR
-      run: gh pr create -B ${GITHUB_REF#refs/heads/} -H $BRANCH --title "Test PR from Actions" --body "This is a test PR"
+      run: gh pr create -B ${GITHUB_REF#refs/heads/} -H $BRANCH --title "Test PR from Actions" --body "This is a test PR" | gh pr merge --admin
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
