@@ -2,8 +2,8 @@
 
 ## Test
 ```bash
-docker pull example.io/example-image:v0.0.13
+docker pull example.io/example-image:v0.0.14
 ```
 
 ## Test2
-Please use `example.io/example-image:v0.0.13
+Please use `example.io/example-image:v0.0.14
