@@ -1,2 +1,2 @@
 name: Test config
-image: example.io/example-image:v0.0.10
+image: example.io/example-image:v0.0.13
