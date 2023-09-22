@@ -43,3 +43,8 @@ jobs:
       run: |
         git tag $VERSION -m "$MESSAGE"
         git push origin $VERSION
+
+    - name: Create PR
+      run: gh pr create -B ${GITHUB_REF#refs/heads/} -H $BRANCH --title "Test PR from Actions" --body "This is a test PR"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
